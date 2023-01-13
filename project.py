@@ -60,6 +60,7 @@ class Player(Character):
         monster.life = monster.hp(attack[0]["dmg"])
         typescript(attack[0]["description"])
 
+
     # Printingplayer's life
     def __str__(self):
         return f"Player[{self.life}]"
@@ -126,7 +127,7 @@ def game_play(player, monster):
         print(f"{Style.DIM}{player} ---------- {monster}")
         time.sleep(1)
     # Call check-life() to see if u win or lose
-    check_life(player, monster)
+    print(check_life(player, monster))
 
 
 # Player's attack pattern
@@ -180,10 +181,10 @@ def extra_attack(player, monster):
 def check_life(player, monster):
     # If player is alive and monster is dead print win
     if player.life >= 0 and monster.life <= 0:
-        print(f"{Back.GREEN}{Style.BRIGHT}     You win!!!     ")
+        return f"{Back.GREEN}{Style.BRIGHT}     You win!!!     "
     # Else print lose
     else:
-        print(f"{Back.RED}{Style.BRIGHT} Game over! You lose... ")
+        return f"{Back.RED}{Style.BRIGHT} Game over! You lose... "
 
 
 # Delay text function
