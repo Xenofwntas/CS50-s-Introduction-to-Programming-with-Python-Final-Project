@@ -1,7 +1,5 @@
 import project
-import colorama
-from colorama import Fore, Back, Style
-import pytest
+from colorama import Back, Style
 
 def test_hp():
     player = project.Player(100)
