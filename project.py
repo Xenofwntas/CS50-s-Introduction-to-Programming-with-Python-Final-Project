@@ -146,29 +146,28 @@ def player_attack_pattern(player, monster):
     else:
         typescript("You panic in fear, but the Golem is coming at you!!")
         print(
-            "<Your options are either the numbers corresponding to the attack or the attack itself>"
+            "<Your options are either the numbers corresponding to the attack number or the attack itself>"
         )
 
 
 # Perform an extra attack
 def extra_attack(player, monster):
     typescript("On the verge of death, you discover a new ability...")
+    typescript("(1)fire (2)water (3)punch (4)unknown")
     # Get user's input
-    choice = input("(1)fire (2)water (3)punch (4)unknown").lower()
+    choice = input("You choose: ").lower()
     # If user pick the (4):extra attack
     if choice == "4" or choice == "unknown":
         # Generate a random number 1-3
-        random_attack = random.randrange(1, 4)
+        random_attack = 1#random.randrange(1, 4)
         if random_attack == 1:
             typescript("It's a Health Potion!")
             # Heal player
             player.life *= 3
-            print(player)
         elif random_attack == 2:
             typescript("Super Lucky Attack ! !")
             # Unleash super attack
             player.attack("super_attack", monster)
-            print(monster)
         else:
             typescript("Action surge!! \nYou gain 2 attacks.")
             # Run player's attack pattern x2
@@ -195,7 +194,7 @@ def typescript(text):
         sys.stdout.write(char)
         sys.stdout.flush()
         # Delay next character
-        time.sleep(0.08)
+        time.sleep(0.04)
         if char == "\n":
             time.sleep(0.4)
 
